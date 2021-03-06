@@ -11,21 +11,25 @@ describe("Servers test (with setup and tear-down)", function() {
     expect(allServers['server' + serverId].serverName).toEqual('Alice');
   });
 
-  it('should Create table row element and pass to appendTd function with input value', function () {
-    submitServerInfo();
-    updateServerTable();
-    const tableData = document.querySelectorAll('tbody tr td')
+  it('should create table row element and pass to appendTd function with input value', function () {
+    
+    submitServerInfo()
+    updateServerTable()
 
-    expect(tableData.length).toEqual(2)
+    let tableData = document.querySelectorAll('#serverTable tbody tr td');
+
+    expect(tableData.length).toEqual(3)
     expect(tableData[0].innerText).toEqual('Alice')
     expect(tableData[1].innerText).toEqual('$0.00')
     expect(tableData[2].innerText).toEqual('X')
 
-  });
+  })
 
   afterEach(function() {
-    allServers = {};
-    serverId = 0;
+
+    allServers = {}
+    serverId = 0
+    serverTbody.innerHTML = ''
 
   });
 });

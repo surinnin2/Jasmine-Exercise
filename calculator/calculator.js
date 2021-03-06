@@ -49,14 +49,6 @@ function update() {
    return monthlyPayment
  }
 
-// function calculateMonthlyPayment(values) {
-//   const monthlyRate = (values.rate / 100) / 12;
-//   const n = Math.floor(values.years * 12);
-//   return (
-//     (monthlyRate * values.amount) /
-//     (1 - Math.pow((1 + monthlyRate), -n))
-//   ).toFixed(2);
-// }
 
 // Given a string representing the monthly payment value,
 // update the UI to show the value.
