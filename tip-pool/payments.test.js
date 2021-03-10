@@ -1,4 +1,4 @@
-describe("payments test setup and teardown"), function() {
+describe("payments test setup and teardown", function() {
 
     beforeEach(function() {
         
@@ -33,11 +33,13 @@ describe("payments test setup and teardown"), function() {
         allPayments['payment1'] = curPayment
         appendPaymentTable(curPayment)
         
-        expect(tableData.length).toEqual(4)
-        expect(tableData[0].innerText).toEqual('$100')
-        expect(tableData[1].innerText).toEqual('$20')
-        expect(tableData[2].innerText).toEqual('%20')
-        expect(tableData[3].innerText).toEqual('X')
+        let tableDataList = document.querySelectorAll('#paymentTable tbody tr td')
+
+        expect(tableDataList.length).toEqual(4)
+        expect(tableDataList[0].innerText).toEqual('$100')
+        expect(tableDataList[1].innerText).toEqual('$10')
+        expect(tableDataList[2].innerText).toEqual('10%')
+        expect(tableDataList[3].innerText).toEqual('X')
 
     })
 
@@ -53,7 +55,7 @@ describe("payments test setup and teardown"), function() {
 
     })
 
-    it('createCurPayment() should return undefined with negative or empty inputs', function() {
+    it('should return undefined with negative or empty inputs', function() {
         
         billAmtInput.value = ''
         tipAmtInput.value = ''
@@ -76,4 +78,4 @@ describe("payments test setup and teardown"), function() {
 
     })
 
-}
+})

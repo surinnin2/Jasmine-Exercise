@@ -11,20 +11,18 @@ describe("Servers test (with setup and tear-down)", function() {
     expect(allServers['server' + serverId].serverName).toEqual('Alice');
   });
 
-  it('should create table row element and pass to appendTd function with input value', function () {
-    
-    submitServerInfo()
-    updateServerTable()
+  it('should update #servertable on updateServerTable()', function () {
+    submitServerInfo();
+    updateServerTable();
 
-    let tableData = document.querySelectorAll('#serverTable tbody tr td');
+    let curTdList = document.querySelectorAll('#serverTable tbody tr td');
 
-    expect(tableData.length).toEqual(3)
-    expect(tableData[0].innerText).toEqual('Alice')
-    expect(tableData[1].innerText).toEqual('$0.00')
-    expect(tableData[2].innerText).toEqual('X')
-
-  })
-
+    expect(curTdList.length).toEqual(3);
+    expect(curTdList[0].innerText).toEqual('Alice');
+    expect(curTdList[1].innerText).toEqual('$0.00');
+    expect(curTdList[2].innerText).toEqual('X');
+  });
+  
   afterEach(function() {
 
     allServers = {}
